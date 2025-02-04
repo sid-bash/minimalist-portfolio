@@ -25,8 +25,9 @@ const Experience = () => {
       <Stack gap={2}>
         {data.map((exp) => (
           <Stack
+            gap={1}
             key={exp.company}
-            direction="row"
+            direction={{ sm: "row" }}
             justifyContent="space-between"
             sx={{
               p: 2,
@@ -36,7 +37,7 @@ const Experience = () => {
             }}
           >
             <Stack direction="row" gap={2} alignItems="center">
-              <Box width={40}>
+              <Box width={{ xs: 30, sm: 40 }}>
                 <img alt="about" src={exp.image} />
               </Box>
               <Box>

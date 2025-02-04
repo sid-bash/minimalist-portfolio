@@ -24,13 +24,11 @@ const Projects = () => {
 
       <Stack direction={{ xs: "column", sm: "row" }} gap={5}>
         {data.map((work) => (
-          <Box key={work.title}>
+          <Box key={work.title} width={{ sm: "50%" }}>
             <img
               alt="project1"
               src={work.image}
               style={{
-                objectFit: "cover",
-                height: "200px",
                 width: "100%",
                 borderRadius: "12px",
                 marginBottom: "15px",

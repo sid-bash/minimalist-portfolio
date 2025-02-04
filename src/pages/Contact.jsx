@@ -1,20 +1,37 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import Heading from "../components/Heading";
-import NorthEastIcon from "@mui/icons-material/NorthEast";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { COLORS } from "../utils/constants";
 
 const links = [
   {
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/siddharth-singh-b30280164/",
+    icon: LinkedInIcon,
   },
   {
     title: "GitHub",
     url: "https://github.com/sid-bash",
+    icon: GitHubIcon,
   },
   {
     title: "GitHub (Alt)",
     url: "https://github.com/SiddharthSingh23",
+    icon: GitHubIcon,
+  },
+  {
+    title: "Resume",
+    url: "https://github.com/SiddharthSingh23",
+    icon: FileDownloadIcon,
   },
 ];
 
@@ -31,24 +48,18 @@ const Contact = () => {
           </span>
         </Typography>
 
-        <Stack direction="row" gap={2}>
+        <Stack direction="row" gap={2} flexWrap="wrap">
           {links.map((item) => (
-            <Button
-              component="a"
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: "14px",
-                color: COLORS.INFO,
-                background: COLORS.BG,
-                borderRadius: "10rem",
-                boxShadow: "5px 8px 15px -5px rgba(0,0,0,0.1)",
-              }}
-              endIcon={<NorthEastIcon />}
-            >
-              {item.title}
-            </Button>
+            <Tooltip key={item.title} title={item.title}>
+              <IconButton
+                component="a"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <item.icon />
+              </IconButton>
+            </Tooltip>
           ))}
         </Stack>
       </Stack>
