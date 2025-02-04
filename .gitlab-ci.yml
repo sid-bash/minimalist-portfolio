@@ -1,0 +1,23 @@
+stages:
+  - build
+  - deploy
+
+# Build stage: Create Docker image
+build_image:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:19.03.12-dind
+  script:
+    - docker build -t registry.git.spicter.io/bevis/bevis-poc/frontend:latest .
+    - docker push registry.git.spicter.io/bevis/bevis-poc/frontend:latest
+  only:
+    - main
+
+# Deploy stage: Push to server (optional, depends on your deployment method)
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy the app here using your deployment scripts"
+  only:
+    - main
