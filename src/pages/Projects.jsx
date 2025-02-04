@@ -1,51 +1,50 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Heading from "../components/Heading";
+import { COLORS } from "../utils/constants";
+
+const data = [
+  {
+    title: "ISV Insights",
+    description:
+      "Unlock Meaningful Insights of your Salesforce ISV Application with ISV Insights.",
+    image: "/assets/isv-main.jpg",
+  },
+  {
+    title: "Helvetia",
+    description:
+      "Advanced bordereaux validations and transformations for your business needs.",
+    image: "/assets/helvetia-main.png",
+  },
+];
 
 const Projects = () => {
   return (
     <Box>
       <Heading text="Projects" />
 
-      <Stack direction="row" gap={5}>
-        <Box>
-          <img
-            alt="project1"
-            src="/assets/bg3.jpg"
-            style={{
-              objectFit: "cover",
-              height: "200px",
-              width: "100%",
-              borderRadius: "6px",
-              marginBottom: "15px",
-            }}
-          />
-          <Typography sx={{ textDecoration: "underline", letterSpacing: 1.1 }}>
-            Motion Primitives Pro
-          </Typography>
-          <Typography>
-            Advanced components and templates to craft beautiful websites.
-          </Typography>
-        </Box>
-
-        <Box>
-          <img
-            alt="project1"
-            src="/assets/bg2.png"
-            style={{
-              objectFit: "cover",
-              height: "200px",
-              width: "100%",
-              borderRadius: "6px",
-              marginBottom: "15px",
-            }}
-          />
-          <Typography sx={{ textDecoration: "underline", letterSpacing: 1.1 }}>
-            Motion Primitives Pro
-          </Typography>
-          <Typography>
-            Advanced components and templates to craft beautiful websites.
-          </Typography>
-        </Box>
+      <Stack direction={{ xs: "column", sm: "row" }} gap={5}>
+        {data.map((work) => (
+          <Box key={work.title}>
+            <img
+              alt="project1"
+              src={work.image}
+              style={{
+                objectFit: "cover",
+                height: "200px",
+                width: "100%",
+                borderRadius: "12px",
+                marginBottom: "15px",
+                boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
+              }}
+            />
+            <Typography
+              sx={{ fontWeight: 600, color: COLORS.TITLE, letterSpacing: 1.1 }}
+            >
+              {work.title}
+            </Typography>
+            <Typography color={COLORS.INFO}>{work.description}</Typography>
+          </Box>
+        ))}
       </Stack>
     </Box>
   );

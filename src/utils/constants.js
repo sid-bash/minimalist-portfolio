@@ -1,7 +1,3 @@
-import { getBaseUrl } from "../app/config";
-
-export const BASE_URL = getBaseUrl();
-
 export const AUTH = {
   TOKEN: "token",
   USER: "user",
@@ -26,6 +22,9 @@ export const DEFAULTS = {
   CONSUMED_STATUS: ["Error", "Pending", "Processed"],
 };
 
-const newGrey = "#f4f4f5";
-const textLight = "#9f9fa9";
-const textDark = "#52525c";
+export const COLORS = {
+  TITLE: "#808080",
+  INFO: "#52525c",
+  BG: "#f8f8f9",
+  DARK_BG: "#9f9fa9",
+};

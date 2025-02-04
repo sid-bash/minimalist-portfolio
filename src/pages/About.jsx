@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+import { COLORS } from "../utils/constants";
 
 const About = () => {
   return (
@@ -13,12 +14,13 @@ const About = () => {
         </Box>
         <Box>
           <Typography fontWeight={600}>Siddharth Singh</Typography>
-          <Typography gutterBottom>Full Stack Developer</Typography>
+          <Typography fontWeight={600} color={COLORS.TITLE} gutterBottom>Full Stack Developer</Typography>
         </Box>
       </Stack>
-      <Typography>
-        Focused on creating intuitive and performant web experiences. Bridging
-        the gap between design and development.
+      <Typography mt={1} color={COLORS.INFO}>
+        Transforming ideas into powerful and seamless digital experiences.
+        Bringing together design, functionality, and performance to create
+        websites and applications that just work.
       </Typography>
     </Box>
   );
