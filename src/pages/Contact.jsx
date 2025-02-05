@@ -1,16 +1,12 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, IconButton, Stack, Tooltip, Typography } from "@mui/material";
+import { saveAs } from "file-saver";
+import resume from "../files/resume.pdf";
 import Heading from "../components/Heading";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { COLORS } from "../utils/constants";
+
 
 const links = [
   {
@@ -30,12 +26,15 @@ const links = [
   },
   {
     title: "Resume",
-    url: "https://github.com/SiddharthSingh23",
     icon: FileDownloadIcon,
   },
 ];
 
 const Contact = () => {
+  const handleDownload = () => {
+    saveAs(resume, "Resume-Siddharth-Singh.pdf");
+  };
+
   return (
     <Box>
       <Heading text="Connect" />
@@ -56,6 +55,7 @@ const Contact = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={item.title === "Resume" ? handleDownload : null}
               >
                 <item.icon />
               </IconButton>
