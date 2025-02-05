@@ -1,30 +1,27 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Heading from "../components/Heading";
 import { COLORS } from "../utils/constants";
-
-const data = [
-  {
-    title: "ISV Insights",
-    description:
-      "Unlock Meaningful Insights of your Salesforce ISV Application with ISV Insights.",
-    image: "/assets/isv-main.jpg",
-  },
-  {
-    title: "Helvetia",
-    description:
-      "Advanced bordereaux validations and transformations for your business needs.",
-    image: "/assets/helvetia-main.png",
-  },
-];
+import { projects } from "../utils/content";
 
 const Projects = () => {
   return (
     <Box>
       <Heading text="Projects" />
 
-      <Stack direction={{ xs: "column", sm: "row" }} gap={5}>
-        {data.map((work) => (
-          <Box key={work.title} width={{ sm: "50%" }}>
+      <Stack
+        display="grid"
+        gap={4}
+        gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr" }}
+      >
+        {projects.map((work) => (
+          <Box
+            key={work.title}
+            component="a"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={work.url}
+            sx={{ cursor: "pointer", textDecoration: "none" }}
+          >
             <img
               alt="project1"
               src={work.image}

@@ -2,33 +2,8 @@ import { Box, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import { saveAs } from "file-saver";
 import resume from "../files/resume.pdf";
 import Heading from "../components/Heading";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { COLORS } from "../utils/constants";
-
-
-const links = [
-  {
-    title: "LinkedIn",
-    url: "https://www.linkedin.com/in/siddharth-singh-b30280164/",
-    icon: LinkedInIcon,
-  },
-  {
-    title: "GitHub",
-    url: "https://github.com/sid-bash",
-    icon: GitHubIcon,
-  },
-  {
-    title: "GitHub (Alt)",
-    url: "https://github.com/SiddharthSingh23",
-    icon: GitHubIcon,
-  },
-  {
-    title: "Resume",
-    icon: FileDownloadIcon,
-  },
-];
+import { contactLinks } from "../utils/content";
 
 const Contact = () => {
   const handleDownload = () => {
@@ -48,7 +23,7 @@ const Contact = () => {
         </Typography>
 
         <Stack direction="row" gap={2} flexWrap="wrap">
-          {links.map((item) => (
+          {contactLinks.map((item) => (
             <Tooltip key={item.title} title={item.title}>
               <IconButton
                 component="a"
