@@ -26,7 +26,6 @@ const Projects = () => {
               alt="project1"
               src={work.image}
               style={{
-                width: "100%",
                 borderRadius: "12px",
                 marginBottom: "15px",
                 boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",

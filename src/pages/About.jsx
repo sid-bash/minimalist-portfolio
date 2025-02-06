@@ -6,11 +6,12 @@ const About = () => {
   return (
     <Box>
       <Stack direction="row" gap={2}>
-        <Box width={50}>
+        <Box>
           <img
             alt="about"
             src="/assets/bg2.png"
             style={{ objectFit: "none" }}
+            width={50}
           />
         </Box>
         <Box>

@@ -1,42 +1,28 @@
-import PropTypes from 'prop-types';
-import { useMemo } from 'react';
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider as MUIThemeProvider, createTheme, StyledEngineProvider } from '@mui/material/styles';
-import palette from './palette';
-import shadows from './shadows';
-import typography from './typography';
+import { createContext, useState, useMemo, useContext } from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { lightTheme, darkTheme } from "./theme";
 import GlobalStyles from './globalStyles';
-import customShadows from './customShadows';
-import componentsOverride from './overrides';
 
-// ----------------------------------------------------------------------
+// Create a context for theme switching
+const ThemeContext = createContext();
 
-export default function ThemeProvider({ children }) {
-  const themeOptions = useMemo(
-    () => ({
-      palette,
-      shape: { borderRadius: 6 },
-      typography,
-      shadows: shadows(),
-      customShadows: customShadows(),
-    }),
-    [],
-  );
+const ThemeProviderWrapper = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
 
-  const theme = createTheme(themeOptions);
-  theme.components = componentsOverride(theme);
+  const theme = useMemo(() => (darkMode ? darkTheme : lightTheme), [darkMode]);
 
   return (
-    <StyledEngineProvider injectFirst>
-      <MUIThemeProvider theme={theme}>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <GlobalStyles />
         {children}
-      </MUIThemeProvider>
-    </StyledEngineProvider>
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
-}
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node,
 };
+
+export default ThemeProviderWrapper;
+
+// Custom hook to use theme context
+export const useTheme = () => useContext(ThemeContext);

@@ -1,14 +1,14 @@
-import ThemeProvider from "./theme";
+import ThemeProviderWrapper from "./theme";
 import Routes from "./Routes";
 import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
-    <ThemeProvider>
+    <ThemeProviderWrapper>
       <HelmetProvider>
         <Routes />
       </HelmetProvider>
-    </ThemeProvider>
+    </ThemeProviderWrapper>
   );
 }
 

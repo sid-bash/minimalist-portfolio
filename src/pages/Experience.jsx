@@ -22,8 +22,8 @@ const Experience = () => {
             }}
           >
             <Stack direction="row" gap={2} alignItems="center">
-              <Box width={30}>
-                <img alt="about" src={exp.image} />
+              <Box>
+                <img alt="about" src={exp.image} width={30} />
               </Box>
               <Box>
                 <Typography sx={{ color: COLORS.INFO, letterSpacing: 1.1 }}>
