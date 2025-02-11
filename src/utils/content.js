@@ -1,4 +1,3 @@
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -79,9 +78,5 @@ export const contactLinks = [
     title: "GitHub (Alt)",
     url: "https://github.com/SiddharthSingh23",
     icon: GitHubIcon,
-  },
-  {
-    title: "Resume",
-    icon: FileDownloadIcon,
   },
 ];

@@ -1,17 +1,11 @@
 import { Box, IconButton, Stack, Tooltip, Typography } from "@mui/material";
-import { saveAs } from "file-saver";
-import resume from "../files/resume.pdf";
 import Heading from "../components/Heading";
-import ContrastIcon from '@mui/icons-material/Contrast';
+import ContrastIcon from "@mui/icons-material/Contrast";
 import { COLORS } from "../utils/constants";
 import { contactLinks } from "../utils/content";
 import { useTheme } from "../theme";
 
 const Contact = () => {
-  const handleDownload = () => {
-    saveAs(resume, "Resume-Siddharth-Singh.pdf");
-  };
-
   const { darkMode, setDarkMode } = useTheme();
 
   return (
@@ -34,14 +28,15 @@ const Contact = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={item.title === "Resume" ? handleDownload : null}
               >
                 <item.icon />
               </IconButton>
             </Tooltip>
           ))}
 
-          <IconButton onClick={() => setDarkMode(!darkMode)}><ContrastIcon /></IconButton>
+          <IconButton onClick={() => setDarkMode(!darkMode)}>
+            <ContrastIcon />
+          </IconButton>
         </Stack>
       </Stack>
     </Box>
